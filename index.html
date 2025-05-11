@@ -52,4 +52,152 @@
     </body>
     
     
-    
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码验证上传系统</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="password"], 
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #uploadSection {
+            display: none;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .error {
+            background-color: #ffebee;
+            color: #f44336;
+        }
+        .success {
+            background-color: #e8f5e9;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>密码验证上传系统</h1>
+        
+        <div id="passwordSection">
+            <div class="form-group">
+                <label for="password">请输入解锁密码:</label>
+                <input type="password" id="password" name="password" required placeholder="输入密码...">
+            </div>
+            <button id="verifyBtn">验证密码</button>
+            <div id="passwordMessage" class="message" style="display: none;"></div>
+        </div>
+        
+        <div id="uploadSection">
+            <div class="form-group">
+                <label for="fileUpload">选择要上传的文件:</label>
+                <input type="file" id="fileUpload" name="fileUpload" required>
+            </div>
+            <button id="submitBtn">提交文件</button>
+        </div>
+    </div>
+
+    <script>
+        // 预设的正确密码
+        const CORRECT_PASSWORD = "mysecret123";
+        
+        document.getElementById('verifyBtn').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password').value;
+            const messageDiv = document.getElementById('passwordMessage');
+            
+            if (passwordInput === CORRECT_PASSWORD) {
+                // 密码正确，显示上传区域
+                document.getElementById('uploadSection').style.display = 'block';
+                messageDiv.style.display = 'block';
+                messageDiv.textContent = '密码验证成功！您现在可以上传文件了。';
+                messageDiv.className = 'message success';
+            } else {
+                // 密码错误
+                messageDiv.style.display = 'block';
+                messageDiv.textContent = '密码错误，请重试！';
+                messageDiv.className = 'message error';
+            }
+        });
+        
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const fileInput = document.getElementById('fileUpload');
+            
+            if (fileInput.files.length === 0) {
+                alert('请先选择要上传的文件！');
+                return;
+            }
+            
+            // 这里可以添加文件上传的逻辑
+            alert('文件已准备上传: ' + fileInput.files[0].name);
+            
+            // 实际应用中，这里可以使用FormData和fetch/AJAX上传文件
+            // const formData = new FormData();
+            // formData.append('file', fileInput.files[0]);
+            // fetch('/upload', { method: 'POST', body: formData })
+            //     .then(response => response.json())
+            //     .then(data => console.log(data))
+            //     .catch(error => console.error(error));
+        });
+    </script>
+</body>
+</html>
