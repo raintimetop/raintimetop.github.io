@@ -1,53 +1,89 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>小猪de新网址</title>
-        <style>
-            html{
-                background: linear-gradient(200deg,#0c3483,#a2b6df);
-            }
-            .text{
-                color: white;
-                text-align: center;
-                
-            }
-        </style>
-        <link rel = "short icon" href = "pop.ico" type = image/x-icon>
-    </head>
-    <body>
-        <p>Hi.</p>
-        <pre>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学信网</title>
+  <style>
+    :root {
+      --primary-color: #4a6cf7;
+      --secondary-color: #f0f2ff;
+      --text-color: #333;
+      --light-text: #666;
+      --border-color: #e0e4ff;
+      --success-color: #4caf50;
+      --warning-color: #ff9800;
+      --danger-color: #f44336;
+      --bg-color: #fff;
+      --card-bg: #f9fafc;
+      --transition: all 0.3s ease;
+    }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-名字: 仇昱程
-证件: 331102201109196518
-出生: 浙江省丽水市莲都区
-性别: 男
-生日: 2011-09-19
-年龄: 13岁
-生肖: 卯兔
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
 
-名字: 仇昱程
-证件: 331102201109196518
-出生: 浙江省丽水市莲都区
-性别: 男
-生日: 2011-09-19
-年龄: 13岁
-生肖: 卯兔
-户籍: 浙江省丽水市莲都区丽阳坑口84号
-</pre>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-<pre>
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px 0;
+    }
 
+    h1 {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
 
-名字: 肖宇菲
-证件: 331102201205295348
-出生: 浙江省丽水市莲都区
-性别: 女
-生日: 2012-05-29
-年龄: 12岁
-生肖: 辰龙
-户籍: 浙江省丽水市莲都区万锦花苑4幢2单元103室
-</pre>
-    </body>
-</html>
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    }
+
+    .search-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 18px 40px 18px 20px;
+      border: 2px solid var(--border-color);
+      border-radius: 30px;
+      font-size: 1.1rem;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba
